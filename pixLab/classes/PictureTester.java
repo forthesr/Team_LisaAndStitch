@@ -8,48 +8,109 @@
  */
 public class PictureTester
 {
-  /** Method to test zeroBlue */
-  public static void testZeroBlue()
-  {
-    Picture beach = new Picture("beach.jpg");
-    beach.explore();
-    beach.zeroBlue();
-    beach.explore();
-  }
+    /** Method to test zeroBlue */
+    public static void testZeroBlue()
+    {
+	Picture beach = new Picture("beach.jpg");
+	beach.explore();
+	beach.zeroBlue();
+	beach.explore();
+    }
+
+    /** Method to test zeroBlue */
+    public static void testKeepOnlyBlue()
+    {
+	Picture beach = new Picture("beach.jpg");
+	beach.explore();
+	beach.keepOnlyBlue();
+	beach.explore();
+    }
+
+    /** Method to test zeroBlue */
+    public static void testNegate()
+    {
+	Picture beach = new Picture("beach.jpg");
+	beach.explore();
+	beach.negate();
+	beach.explore();
+    }
+
+    /** Method to test zeroBlue */
+    public static void testGrayscale()
+    {
+	Picture beach = new Picture("beach.jpg");
+	beach.explore();
+	beach.grayscale();
+	beach.explore();
+    }
   
-  /** Method to test mirrorVertical */
-  public static void testMirrorVertical()
-  {
-    Picture caterpillar = new Picture("caterpillar.jpg");
-    caterpillar.explore();
-    caterpillar.mirrorVertical();
-    caterpillar.explore();
-  }
+    /** Method to test mirrorVertical */
+    public static void testMirrorVertical()
+    {
+	Picture caterpillar = new Picture("caterpillar.jpg");
+	caterpillar.explore();
+	caterpillar.mirrorVertical();
+	caterpillar.explore();
+    }
   
-  /** Method to test mirrorTemple */
-  public static void testMirrorTemple()
-  {
-    Picture temple = new Picture("temple.jpg");
-    temple.explore();
-    temple.mirrorTemple();
-    temple.explore();
-  }
+    /** Method to test mirrorTemple */
+    public static void testMirrorTemple()
+    {
+	Picture temple = new Picture("temple.jpg");
+	temple.explore();
+	temple.mirrorTemple();
+	temple.explore();
+    }
+
+    /** Method to test mirrorArms */
+    public static void testMirrorArms()
+    {
+	Picture snowman = new Picture("snowman.jpg");
+	snowman.explore();
+	snowman.mirrorArms();
+	snowman.explore();
+    }
+
+    /** Method to test mirrorGull */
+    public static void testMirrorGull()
+    {
+	Picture gull = new Picture("seagull.jpg");
+	gull.explore();
+	gull.mirrorGull();
+	gull.explore();
+    }
   
-  /** Method to test the collage method */
-  public static void testCollage()
-  {
-    Picture canvas = new Picture("640x480.jpg");
-    canvas.createCollage();
-    canvas.explore();
-  }
+    /** Method to test the collage method */
+    public static void testCollage()
+    {
+	Picture canvas = new Picture("640x480.jpg");
+	canvas.createCollage();
+	canvas.explore();
+    }
   
-  /** Method to test edgeDetection */
-  public static void testEdgeDetection()
-  {
-    Picture swan = new Picture("swan.jpg");
-    swan.edgeDetection(10);
-    swan.explore();
-  }
+    /** Method to test edgeDetection */
+    public static void testEdgeDetection()
+    {
+	Picture swan = new Picture("swan.jpg");
+	swan.edgeDetection(10);
+	swan.explore();
+    }
+
+    public static void testCopy()
+    {
+	Picture blank = new Picture("640x480.jpg");
+	Picture flower = new Picture("flower1.jpg");
+	blank.explore();
+	blank.copy(flower,100,100,200,150);
+	blank.explore();
+    }
+
+    public static void testMyCollage()
+    {
+	Picture blank = new Picture("640x480.jpg");
+	blank.myCollage();
+	blank.explore();
+    }
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
