@@ -34,7 +34,6 @@ public class Picture extends SimplePicture
    */
   public Picture(String fileName)
   {
-    // let the parent class handle this fileName
     super(fileName);
   }
   
@@ -45,7 +44,6 @@ public class Picture extends SimplePicture
    */
   public Picture(int height, int width)
   {
-    // let the parent class handle this width and height
     super(width,height);
   }
   
@@ -56,7 +54,6 @@ public class Picture extends SimplePicture
    */
   public Picture(Picture copyPicture)
   {
-    // let the parent class do the copy
     super(copyPicture);
   }
   
@@ -98,9 +95,59 @@ public class Picture extends SimplePicture
     }
   }
   
+  public void keepOnlyBlue() 
+  {
+    Pixel[][] p = this.getPixels2D();
+    for (Pixel[] i : p){
+      for (Pixek j : i) {
+        j.setRed(0);
+        j.setGreen(0);
+      }
+    }
+  }
+
+  public void negate() {
+    Pixel[][] p = this.getPixels2D();
+    for (Pixel[] i : p) {
+      for (j : i) {
+        j.setRed(j.getRed() - 255);
+        j.setGreen(j.getGreet() - 255);
+        j.setBlue(j.getBlue() - 255)
+      }
+    }
+  }
+
+  public void grayscale() {
+    Pixel[][] p = this.getPixels2D();
+    for (Pixel[] i : p) {
+      for (j : i) {
+        int avg = (int) ( (j.getRed() + j.getGreen() + j.getBlue()) / 3);
+        j.setRed(avg);
+        j.setBlue(avg);
+        j.setGreen(avg);
+  }}}
+  
+  
   /** Method that mirrors the picture around a 
     * vertical mirror in the center of the picture
     * from left to right */
+    public void mirrorVerticalRightToLeft()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    int width = pixels[0].length;
+    for (int row = 0; row < pixels.length; row++)
+    {
+      for (int col = 0; col < width / 2; col++)
+      {
+        leftPixel = pixels[row][col];
+        rightPixel = pixels[row][width - 1 - col];
+        leftPixel.setColor(rightPixel.getColor());
+      }
+    }
+  }
+  
   public void mirrorVertical()
   {
     Pixel[][] pixels = this.getPixels2D();
@@ -118,6 +165,42 @@ public class Picture extends SimplePicture
     } 
   }
   
+   public void mirrorHorizontal()
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      Pixel topPixel = null;
+      Pixel bottomPixel = null;
+      int height = pixels.length;
+      
+      for (int row = 0; row < height; row++)
+      {
+          for (int col = 0; col < pixels[0].length; col++)
+          {
+              topPixel = pixels[row][col];
+              bottomPixel = pixels[height - 1 - row][col];
+              bottomPixel.setColor(topPixel.getColor());
+          }
+      }
+  }
+  
+  public void mirrorHorizontalBottomToTop()
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      Pixel topPixel = null;
+      Pixel bottomPixel = null;
+      int height = pixels.length;
+      
+      for (int row = 0; row < height; row++)
+      {
+          for (int col = 0; col < pixels[0].length; col++)
+          {
+              topPixel = pixels[row][col];
+              bottomPixel = pixels[height - 1 - row][col];
+              topPixel.setColor(bottomPixel.getColor());
+          }
+      }
+  }
+  
   /** Mirror just part of a picture of a temple */
   public void mirrorTemple()
   {
@@ -127,10 +210,8 @@ public class Picture extends SimplePicture
     int count = 0;
     Pixel[][] pixels = this.getPixels2D();
     
-    // loop through the rows
     for (int row = 27; row < 97; row++)
     {
-      // loop from 13 to just before the mirror point
       for (int col = 13; col < mirrorPoint; col++)
       {
         
@@ -229,4 +310,4 @@ public class Picture extends SimplePicture
     beach.explore();
   }
   
-} // this } is the end of class Picture, put all new methods before this
+}
